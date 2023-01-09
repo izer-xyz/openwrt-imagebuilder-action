@@ -13,7 +13,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'docker'
-  image: 'docker://openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }}'
-  args:
-    - make image
+  using: 'composite'
+  steps:
+    - run: 'docker://openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }} make image'
+  
