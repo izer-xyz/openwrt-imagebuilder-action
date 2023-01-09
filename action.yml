@@ -31,9 +31,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: mkdir bin && ls -la . && chmod 777 bin
-      shell: bash
     - run: |
+        mkdir bin && chmod 777 bin && \
         docker run --rm \
           -v "$(pwd)"/${{ inputs.files }}/:/home/build/openwrt/files:rw \
           -v "$(pwd)"/${{ inputs.bin-dir }}/:/home/build/openwrt/bin:rw \
@@ -43,5 +42,5 @@ runs:
             DISABLED_SERVICES="${{ inputs.disabled-services }}" \
             FILES="files"
       shell: bash
-    - run: find .
+    - run: find . && cat .config
       shell: bash
