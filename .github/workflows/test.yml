@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run:  sudo chmod -R -v +r +w /var/lib/docker/image
+      - run:  sudo chmod -R -v +r+w /var/lib/docker/image
       
       - uses: actions/cache@v3
         with: 
@@ -39,6 +39,6 @@ jobs:
           files: test/files
           disabled-services: dhcp
           
-      - run:  sudo chmod -R -v +r +w /var/lib/docker
+      - run:  sudo chmod -R -v +r+w /var/lib/docker
       
       
