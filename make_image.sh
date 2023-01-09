@@ -1,5 +1,7 @@
 #!/bin/bash
 
-set
+#set
 
-cat .config
+#cat .config
+
+make image
