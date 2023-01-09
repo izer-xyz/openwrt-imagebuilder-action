@@ -37,4 +37,4 @@ jobs:
           files: test/files
           disabled-services: dhcp
           
-      - run: ls -la /var/lib/docker
+      - run: sudo ls -la /var/lib/docker
