@@ -34,15 +34,18 @@ runs:
     - run: |
         mkdir bin && chmod 777 bin && \
         docker run --rm \
+          -v ${{ github.action_path }}/make_image.sh:/home/build/openwrt/github_make_image.sh \
           -v "$(pwd)"/${{ inputs.files }}/:/home/build/openwrt/files:rw \
           -v "$(pwd)"/${{ inputs.bin-dir }}/:/home/build/openwrt/bin:rw \
           openwrtorg/imagebuilder:${{ inputs.profile }}-${{ inputs.openwrt-version }} \
-          make image \
             PACKAGES="${{ inputs.packages }}" \
             DISABLED_SERVICES="${{ inputs.disabled-services }}" \
-            FILES="files"
-      shell: bash
-    - run: ${{ github.action_path }}/make_image.sh
+            FILES="files" \
+            /home/build/openwrt/github_make_image.sh
+          # make image \
+          #  PACKAGES="${{ inputs.packages }}" \
+          #  DISABLED_SERVICES="${{ inputs.disabled-services }}" \
+          #  FILES="files"
       shell: bash
     - run: find .
       shell: bash
