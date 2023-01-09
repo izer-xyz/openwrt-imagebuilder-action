@@ -24,11 +24,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      #- uses: actions/cache@v3
-      #  with: 
-      #    key: 22.03.2
-      #    path: |
-      #      /var/lib/docker/image
+      - run: sudo chmod -R +rw /var/lib/docker/image
+      
+      - uses: actions/cache@v3
+        with: 
+          key: 22.03.2
+          path: |
+            /var/lib/docker/image
     
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
@@ -37,4 +39,4 @@ jobs:
           files: test/files
           disabled-services: dhcp
           
-      - run: sudo ls -la /var/lib/docker
+      
