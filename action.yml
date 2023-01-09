@@ -15,7 +15,7 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: mkdir bin && ls -la . && chmod 555 bin
+    - run: mkdir bin && ls -la . && chmod 777 bin
       shell: bash
     - run: docker run --rm -v "$(pwd)"/bin/:/home/build/openwrt/bin:rw openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }} make image
       shell: bash
