@@ -39,5 +39,5 @@ jobs:
           files: test/files
           disabled-services: dhcp
 
-      - run: sudo chmod -R +rw /var/lib/docker/image/*
+      - run: sudo chmod -R +rw .docker-images
       
