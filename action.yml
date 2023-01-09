@@ -1,0 +1,19 @@
+name: 'OpenWrt ImageBuilder'
+description: 'Build OpenWrt custom images using ImageBuilder'
+inputs:
+  openwrt-device: 
+    description: 'OpenWrt device ID'
+    required: true
+    default: 'bcm27xx-bcm2711'
+  openwrt-version:
+    description: 'OpenWrt version'
+    required: true
+    default: 'master'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'docker://openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }}'
+  args:
+    - make image
