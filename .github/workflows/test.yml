@@ -23,10 +23,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-        # Ignore the failure of a step and avoid terminating the job.
-        continue-on-error: true
-    
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
           openwrt-version: openwrt-22.03
