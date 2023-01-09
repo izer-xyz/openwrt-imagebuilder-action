@@ -22,25 +22,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - run: docker info
+      - uses: actions/checkout@v3
       
-      - uses: actions/cache@v3
-        with: 
-          key: 22.03.2
-          path: |
-            /var/lib/docker/image
+      #- uses: actions/cache@v3
+      #  with: 
+      #    key: 22.03.2
+      #    path: |
+      #      /var/lib/docker/image
     
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
           openwrt-version: 22.03.2
-          packages: |
-            -ppp -firewall4 -base-files -bcm27xx-gpu-fw -busybox -ca-bundle 
-            -cypress-firmware-43455-sdio -cypress-nvram-43455-sdio-rpi-4b -dnsmasq 
-            -dropbear -e2fsprogs -fstools -iwinfo -kernel -kmod-brcmfmac -kmod-fs-vfat 
-            -kmod-nft-offload -kmod-nls-cp437 -kmod-nls-iso8859-1 -kmod-sound-arm-bcm2835 
-            -kmod-sound-core -kmod-usb-hid -kmod-usb-net-lan78xx -libc -libgcc 
-            -libustream-wolfssl -logd -mkf2fs -mtd -netifd -nftables -odhcp6c 
-            -odhcpd-ipv6only -opkg -partx-utils -ppp-mod-pppoe -procd -procd-seccomp 
-            -procd-ujail -uci -uclient-fetch -urandom-seed -wpad-basic-wolfssl
+          packages: -ppp -firewall4 -base-files -bcm27xx-gpu-fw -busybox -ca-bundle -cypress-firmware-43455-sdio -cypress-nvram-43455-sdio-rpi-4b -dnsmasq -dropbear -e2fsprogs -fstools -iwinfo -kernel -kmod-brcmfmac -kmod-fs-vfat -kmod-nft-offload -kmod-nls-cp437 -kmod-nls-iso8859-1 -kmod-sound-arm-bcm2835 -kmod-sound-core -kmod-usb-hid -kmod-usb-net-lan78xx -libc -libgcc  -libustream-wolfssl -logd -mkf2fs -mtd -netifd -nftables -odhcp6c -odhcpd-ipv6only -opkg -partx-utils -ppp-mod-pppoe -procd -procd-seccomp -procd-ujail -uci -uclient-fetch -urandom-seed -wpad-basic-wolfssl
           files: test/files
           disabled-services: dhcp
