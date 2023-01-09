@@ -1,14 +1,30 @@
-name: 'OpenWrt ImageBuilder'
-description: 'Build OpenWrt custom images using ImageBuilder'
+name: 'OpenWrt ImageBuilder Github Action'
+description: 'Build OpenWrt custom images using ImageBuilder - https://openwrt.org/docs/guide-user/additional-software/imagebuilder '
 inputs:
-  openwrt-device: 
-    description: 'OpenWrt device ID'
+  profile: 
+    description: 'Specifies the target image to build - PROFILE'
     required: true
     default: 'bcm27xx-bcm2711'
   openwrt-version:
     description: 'OpenWrt version'
     required: true
     default: 'master'
+  packages:
+    description: 'A list of packages to embed into the image - PACKAGES'
+    required: false
+    default: ''
+  files:
+    description: 'Directory with custom files to include - FILES'
+    required: false
+    default: 'files'
+  disabled-services:
+    description: 'The names of services from /etc/init.d to disable, e.g. dhcp for dnsmasq - DISABLED_SERVICES'
+    required: false
+    default: ''
+  bin-dir:
+    description: 'Alternative output directory for the images - BIN_DIR'
+    required: false
+    default: 'bin'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -17,7 +33,15 @@ runs:
   steps:
     - run: mkdir bin && ls -la . && chmod 777 bin
       shell: bash
-    - run: docker run --rm -v "$(pwd)"/bin/:/home/build/openwrt/bin:rw openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }} make image
+    - run: |
+        docker run --rm \
+          -v "$(pwd)"/${{ inputs.files }}/:/home/build/openwrt/files:rw \
+          -v "$(pwd)"/${{ inputs.bin-dir }}/:/home/build/openwrt/bin:rw \
+          openwrtorg/imagebuilder:${{ inputs.profile }}-${{ inputs.openwrt-version }} \
+          make image \
+            PACKAGES="${{ inputs.packages }}" \
+            DISABLED_SERVICES="${{ inputs.disabled-services }}" \
+            FILES="files"
       shell: bash
     - run: find .
       shell: bash
