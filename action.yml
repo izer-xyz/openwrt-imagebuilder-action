@@ -15,5 +15,6 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: 'docker://openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }} make image'
+    - run: docker://openwrtorg/imagebuilder:${{ inputs.openwrt-device }}-${{ inputs.openwrt-version }} make image
+      shell: bash
   
