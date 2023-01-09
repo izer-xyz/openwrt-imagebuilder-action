@@ -30,7 +30,7 @@ jobs:
           path: |
             .docker-images
 
-      - run: sudo ln -s .docker-images /var/lib/docker/image
+      - run: mkdir .docker-images && sudo ln -s .docker-images /var/lib/docker/image
     
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
