@@ -3,7 +3,7 @@
 #set
 sed -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' -i .config
 
-cat .config
+#cat .config
 
 ls -la files
 
