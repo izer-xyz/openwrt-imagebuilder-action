@@ -22,6 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - run: docker info
     
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
