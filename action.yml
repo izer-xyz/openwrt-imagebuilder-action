@@ -42,5 +42,8 @@ runs:
             DISABLED_SERVICES="${{ inputs.disabled-services }}" \
             FILES="files"
       shell: bash
-    - run: find . && cat .config
+    - run: ${{ github.action_path }}/make_image.sh
       shell: bash
+    - run: find .
+      shell: bash
+
