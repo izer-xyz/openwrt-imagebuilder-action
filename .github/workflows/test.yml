@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - run: sudo chmod -R +rw /var/lib/docker/image
+      - run: sudo chmod -R +rw /var/lib/docker/image && ls -la /var/lib/docker
       
       - uses: actions/cache@v3
         with: 
