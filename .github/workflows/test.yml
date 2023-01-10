@@ -18,6 +18,7 @@ jobs:
   build:
   
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       
@@ -27,7 +28,11 @@ jobs:
         with:
           profile: armvirt-32
           openwrt-version: 22.03.2
-          packages: -firewall4 -ca-bundle -dnsmasq -dropbear -e2fsprogs -fstools -kmod-nft-offload -libustream-wolfssl -logd -mkf2fs mtd netifd -nftables odhcp6c -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe procd procd-seccomp procd-ujail uci uclient-fetch urandom-seed urngd
+          packages: >
+            -firewall4 -ca-bundle -dnsmasq -dropbear e2fsprogs fstools 
+            -kmod-nft-offload -libustream-wolfssl logd mkf2fs mtd netifd 
+            -nftables odhcp6c -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe 
+            procd procd-seccomp procd-ujail uci uclient-fetch urandom-seed urngd
           files: test/files
           disabled-services: dhcp
           extra-image-name: useless
