@@ -42,7 +42,7 @@ jobs:
            -e QEMU_ARCH=aarch64 \
            -v $(pwd)/bin/targets/armvirt/64:/openwrt \
            tianon/qemu \
-             start-qemu -nographic -machine virt-2.7 -kernel /openwrt/openwrt-22.03.2-useless-armvirt-64-Image
+             start-qemu -nographic -machine virt -kernel /openwrt/openwrt-22.03.2-useless-armvirt-64-Image
          
       - uses: actions/upload-artifact@v3
         with:
