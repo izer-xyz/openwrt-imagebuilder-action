@@ -20,6 +20,10 @@ Outputs
  * *`./bin/targets/**`*
    * e.g. `./bin/targets/bcm27xx/bcm2711/openwrt-22.03.2-useless-bcm27xx-bcm2711-rpi-4-squashfs-factory.img.gz`
 
+An example producing a none working image:
+
+ * [.github/workflows/test.yml](.github/workflows/test.yml)
+
 ### Build a firmware image without ppp package
 
 ```yaml
