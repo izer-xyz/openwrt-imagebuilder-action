@@ -34,7 +34,7 @@ jobs:
           
       - run: |
          sudo chmod -R a+rw ./bin
-         gzip -d ./bin/targets/x86/64/openwrt-22.03.2-useless-x86-64-generic-squashfs-combined.img.gz
+         # gzip -d ./bin/targets/x86/64/openwrt-22.03.2-useless-x86-64-generic-squashfs-combined.img.gz
          which docker 
          docker info
          docker run --rm -it \
