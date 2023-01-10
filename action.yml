@@ -1,4 +1,4 @@
-name: 'OpenWrt ImageBuilder Github Action'
+name: 'OpenWrt ImageBuilder'
 description: 'Build OpenWrt custom images using ImageBuilder - https://openwrt.org/docs/guide-user/additional-software/imagebuilder '
 inputs:
   profile: 
