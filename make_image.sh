@@ -1,14 +1,14 @@
 #!/bin/bash
 
-#set
-#cat .config
-#ls -la files
+if [ "$DEBUG" -eq "1" ]; then
+  set
+  cat .config
+  ls -la files
+fi
 
-#sed \
-#  -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' \
-#  -i .config
-  
-echo CONFIG_TARGET_ROOTFS_INITRAMFS=y >> .config
+sed \
+  -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' \
+  -i .config
   
 make image \
   FILES="$FILES" \
