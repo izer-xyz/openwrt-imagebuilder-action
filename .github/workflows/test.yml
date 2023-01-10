@@ -33,7 +33,8 @@ jobs:
           extra-image-name: useless
           
       - run: |
-         sudo gzip -d ./bin/targets/x86/64/openwrt-22.03.2-useless-x86-64-generic-squashfs-combined.img.gz
+         sudo chmod -R a+rw ./bin
+         gzip -d ./bin/targets/x86/64/openwrt-22.03.2-useless-x86-64-generic-squashfs-combined.img.gz
          docker run --rm -it \
            -e QEMU_NO_SERIAL=1 \
            -e QEMU_HDA=/rootfs.img \
