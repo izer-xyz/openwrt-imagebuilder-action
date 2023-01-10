@@ -1,1 +1,1 @@
-echo reboot -fn
+reboot -fn
