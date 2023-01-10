@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$DEBUG" -eq "1" ]; then
+if [[ "$DEBUG" == "1" ]]; then
   set
   cat .config
   ls -la files
