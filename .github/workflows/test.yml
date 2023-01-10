@@ -28,26 +28,26 @@ jobs:
         with:
           profile: armvirt-32
           openwrt-version: 22.03.2
-          packages: >-
-            -firewall4 -ca-bundle -dnsmasq -dropbear e2fsprogs fstools 
-            -kmod-nft-offload -libustream-wolfssl logd mkf2fs mtd netifd 
-            -nftables odhcp6c -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe 
-            procd procd-seccomp procd-ujail uci uclient-fetch urandom-seed urngd
+ #         packages: >-
+ #            -firewall4 -ca-bundle -dnsmasq -dropbear e2fsprogs fstools 
+#            -kmod-nft-offload -libustream-wolfssl logd mkf2fs mtd netifd 
+ #           -nftables odhcp6c -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe 
+        #    procd procd-seccomp procd-ujail uci uclient-fetch urandom-seed urngd
           files: test/files
-          disabled-services: dhcp
-          extra-image-name: useless
+          #disabled-services: dhcp
+         # extra-image-name: useless
           
       - run: |
          sudo chmod -R a+rw ./bin
          ls -la $(pwd)/bin/targets/armvirt/32
-         gzip -d ./bin/targets/armvirt/32/openwrt-22.03.2-useless-armvirt-32-rootfs.cpio.gz || true
+         gzip -d ./bin/targets/armvirt/32/openwrt-22.03.2-armvirt-32-rootfs.cpio.gz || true
          docker run --rm \
            -v $(pwd)/bin/targets/armvirt/32:/openwrt \
            tianon/qemu \
              qemu-system-arm \
                -M virt \
-               -kernel /openwrt/openwrt-22.03.2-useless-armvirt-32-zImage \
-               -initrd /openwrt/openwrt-22.03.2-useless-armvirt-32-rootfs.cpio \
+               -kernel /openwrt/openwrt-22.03.2-armvirt-32-zImage \
+               -initrd /openwrt/openwrt-22.03.2-armvirt-32-rootfs.cpio \
                -no-reboot -nographic
          
       - uses: actions/upload-artifact@v3
