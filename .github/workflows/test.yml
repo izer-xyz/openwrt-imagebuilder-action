@@ -50,8 +50,4 @@ jobs:
                -nic user -nic user  \
                -drive file=/openwrt/openwrt-22.03.2-armvirt-32-rootfs-squashfs.img,if=virtio,format=raw  \
                -append "root=/dev/vda"
-         
-      - uses: actions/upload-artifact@v3
-        with:
-          name: firmwares
-          path: bin/targets/*/*/*
+
