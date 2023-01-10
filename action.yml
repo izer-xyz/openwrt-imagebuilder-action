@@ -29,9 +29,10 @@ inputs:
     description: 'Add this to the output image filename (sanitized) - EXTRA_IMAGE_NAME'
     required: false
     default: ''
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  debug:
+    description: 'Set to "1" to enable additional debug info like the content of .config'
+    required: false
+    default: ''
 runs:
   using: 'composite'
   steps:
@@ -45,13 +46,8 @@ runs:
           -e DISABLED_SERVICES="${{ inputs.disabled-services }}" \
           -e FILES="files" \
           -e EXTRA_IMAGE_NAME="${{ inputs.extra-image-name }}" \
+          -e DEBUG="${{ inputs.debug }}" \
           openwrtorg/imagebuilder:${{ inputs.profile }}-${{ inputs.openwrt-version }} \
             /home/build/openwrt/github_make_image.sh
-          # make image \
-          #  PACKAGES="${{ inputs.packages }}" \
-          #  DISABLED_SERVICES="${{ inputs.disabled-services }}" \
-          #  FILES="files"
-      shell: bash
-    - run: find .
       shell: bash
 
