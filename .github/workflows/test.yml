@@ -22,15 +22,10 @@ jobs:
     steps:
       
       - uses: actions/checkout@v3
-      
-      - run: |
-         docker run --rm \
-           -e QEMU_NO_SERIAL=1 \
-           tianon/qemu start-qemu -nographic
-         
+       
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
-          profile: armvirt-64
+          profile: x86-64
           openwrt-version: 22.03.2
           packages: busybox -ppp -firewall4 -base-files -bcm27xx-gpu-fw -ca-bundle -cypress-firmware-43455-sdio -cypress-nvram-43455-sdio-rpi-4b -dnsmasq -dropbear -e2fsprogs -fstools -iwinfo -kernel -kmod-brcmfmac -kmod-fs-vfat -kmod-nft-offload -kmod-nls-cp437 -kmod-nls-iso8859-1 -kmod-sound-arm-bcm2835 -kmod-sound-core -kmod-usb-hid -kmod-usb-net-lan78xx -libc -libgcc  -libustream-wolfssl -logd -mkf2fs -mtd -netifd -nftables -odhcp6c -odhcpd-ipv6only -opkg -partx-utils -ppp-mod-pppoe -procd -procd-seccomp -procd-ujail -uci -uclient-fetch -urandom-seed -wpad-basic-wolfssl
           files: test/files
@@ -38,8 +33,13 @@ jobs:
           extra-image-name: useless
           
       - run: |
-         gzip -d ./bin/targets/armvirt/64/openwrt-22.03.2-useless-armvirt-64-rootfs-squashfs.img.gz
-         docker run --rm tianon/qemu "start-qemu -nographic"
+         gzip -d ./bin/targets/x86/64/openwrt-22.03.3-useless-x86-64-generic-squashfs-combined.img.gz
+         docker run --rm -it \
+           -e QEMU_NO_SERIAL=1 \
+           -e QEMU_HDA=/rootfs.img \
+           -v $(pwd)/bin/target/x86/64/openwrt-22.03.3-useless-x86-64-generic-squashfs-combined.img:/rootfs.img \
+           tianon/qemu \
+             start-qemu -nographic
          
       - uses: actions/upload-artifact@v3
         with:
