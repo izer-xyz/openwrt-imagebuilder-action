@@ -58,7 +58,9 @@ The Docker Hub [Imagebuilder tags](https://hub.docker.com/r/openwrtorg/imagebuil
 
 ## Additional Documentation
 
- * 
+ * Run openwrt in Qemu
+   
+   https://gist.github.com/cocktail828/eec77bac804110478ac55d2381bbb81e
 
 # License
 
