@@ -28,7 +28,7 @@ An example producing a none working image:
 
 ```yaml
 steps:
-- uses: izer-xyz/openwrt-imagebuilder-action@main
+- uses: izer-xyz/openwrt-imagebuilder-action@v1
   with:
     profile: bcm27xx-bcm2711
     openwrt-version: 22.03.2
@@ -39,7 +39,7 @@ steps:
 
 ```yaml
 steps:
-- uses: izer-xyz/openwrt-imagebuilder-action@main
+- uses: izer-xyz/openwrt-imagebuilder-action@v1
   with:
     profile: bcm27xx-bcm2711
     openwrt-version: 22.03.2
