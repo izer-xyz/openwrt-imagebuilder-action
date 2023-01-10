@@ -20,10 +20,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
-      - uses: docker/setup-qemu-action@v2
-      
-      - run: qemu-system-arm --help 
       
       - uses: actions/checkout@v3
     
@@ -36,6 +32,10 @@ jobs:
           disabled-services: dhcp
           extra-image-name: useless
           
+      - run: |
+         gzip -d ./bin/targets/armvirt/64/openwrt-22.03.2-useless-armvirt-64-squashfs-factory.img.gz
+         docker run --rm tianon/qemu "start-qemu -nographic"
+         
       - uses: actions/upload-artifact@v3
         with:
           name: firmwares
