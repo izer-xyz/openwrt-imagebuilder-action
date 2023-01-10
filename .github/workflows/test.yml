@@ -40,15 +40,17 @@ jobs:
       - run: |
          sudo chmod -R a+rw ./bin
          ls -la $(pwd)/bin/targets/armvirt/32
-         gzip -d ./bin/targets/armvirt/32/openwrt-22.03.2-armvirt-32-rootfs.cpio.gz || true
+         gzip -d ./bin/targets/armvirt/32/openwrt-22.03.2-armvirt-32-rootfs-squashfs.img.gz || true
          docker run --rm \
            -v $(pwd)/bin/targets/armvirt/32:/openwrt \
            tianon/qemu \
              qemu-system-arm \
-               -M virt \
+               -M virt-2.9 \
                -kernel /openwrt/openwrt-22.03.2-armvirt-32-zImage \
-               -initrd /openwrt/openwrt-22.03.2-armvirt-32-rootfs.cpio \
-               -no-reboot -nographic
+               -no-reboot -nographic \
+               -nic user -nic user  \
+               -drive file=/openwrt/openwrt-22.03.2-armvirt-32-rootfs-squashfs.img,if=virtio,format=raw  \
+               -append "root=/dev/vda"
          
       - uses: actions/upload-artifact@v3
         with:
