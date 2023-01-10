@@ -33,11 +33,11 @@ jobs:
           extra-image-name: useless
           
       - run: |
-         gzip -d ./bin/targets/x86/64/openwrt-22.03.3-useless-x86-64-generic-squashfs-combined.img.gz
+         gzip -d ./bin/targets/x86/64/targets/x86/64/openwrt-22.03.2-useless-x86-64-generic-squashfs-combined.img.gz
          docker run --rm -it \
            -e QEMU_NO_SERIAL=1 \
            -e QEMU_HDA=/rootfs.img \
-           -v $(pwd)/bin/target/x86/64/openwrt-22.03.3-useless-x86-64-generic-squashfs-combined.img:/rootfs.img \
+           -v $(pwd)/bin/target/x86/64/targets/x86/64/openwrt-22.03.2-useless-x86-64-generic-squashfs-combined.img:/rootfs.img \
            tianon/qemu \
              start-qemu -nographic
          
