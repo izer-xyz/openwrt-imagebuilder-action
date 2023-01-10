@@ -4,9 +4,9 @@
 #cat .config
 #ls -la files
 
-sed \
-  -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' \
-  -i .config
+#sed \
+#  -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' \
+#  -i .config
 
 make image \
   FILES="$FILES" \
