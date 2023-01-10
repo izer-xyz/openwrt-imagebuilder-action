@@ -20,7 +20,7 @@ Outputs
  * *`./bin/targets/**`*
    * e.g. `./bin/targets/bcm27xx/bcm2711/openwrt-22.03.2-useless-bcm27xx-bcm2711-rpi-4-squashfs-factory.img.gz`
 
-An example producing a none working image:
+An example workflow creating a very basic (packages removed; [custom files](test/files) added) image and then running with Qemu
 
  * [.github/workflows/test.yml](.github/workflows/test.yml)
 
@@ -60,7 +60,7 @@ The Docker Hub [Imagebuilder tags](https://hub.docker.com/r/openwrtorg/imagebuil
 
  * Run openwrt in Qemu
    
-   https://gist.github.com/cocktail828/eec77bac804110478ac55d2381bbb81e
+   https://gist.github.com/extremecoders-re/f2c4433d66c1d0864a157242b6d83f67
 
 # License
 
