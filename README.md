@@ -17,9 +17,8 @@ Parameters
 
 Outputs
 
- * `./bin/targets/` e.g.
-   
-   .bin/targets/bcm27xx/bcm2711/openwrt-22.03.2-useless-bcm27xx-bcm2711-rpi-4-squashfs-factory.img.gz/bin/targets/bcm27xx/bcm2711/openwrt-22.03.2-useless-bcm27xx-bcm2711-rpi-4-squashfs-factory.img.gz
+ * *`./bin/targets/**`*
+   * e.g. `./bin/targets/bcm27xx/bcm2711/openwrt-22.03.2-useless-bcm27xx-bcm2711-rpi-4-squashfs-factory.img.gz`
 
 ### Build a firmware image without ppp package
 
