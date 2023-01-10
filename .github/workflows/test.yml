@@ -38,11 +38,11 @@ jobs:
          gzip -d ./bin/targets/armvirt/64/openwrt-22.03.2-useless-armvirt-64-rootfs-squashfs.img.gz || true
          docker run --rm \
            -e QEMU_NO_SERIAL=1 \
-           -e QEMU_HDA=/rootfs.img \
+           -e QEMU_HDA=/openwrt/openwrt-22.03.2-useless-armvirt-64-rootfs-squashfs.img \
            -e QEMU_ARCH=aarch64 \
-           -v $(pwd)/bin/targets/armvirt/64/openwrt-22.03.2-useless-armvirt-64-rootfs-squashfs.img:/rootfs.img \
+           -v $(pwd)/bin/targets/armvirt/64:/openwrt \
            tianon/qemu \
-             start-qemu -nographic -machine virt-2.7
+             start-qemu -nographic -machine virt-2.7 -kernel /openwrt/openwrt-22.03.2-useless-armvirt-64-Image
          
       - uses: actions/upload-artifact@v3
         with:
