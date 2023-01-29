@@ -47,6 +47,8 @@ runs:
           -e FILES="files" \
           -e EXTRA_IMAGE_NAME="${{ inputs.extra-image-name }}" \
           -e DEBUG="${{ inputs.debug }}" \
+          -e OPENWRT_VERSION="${{ inputs.openwrt-version }}" \
+          -e PROFILE="${{ inputs.profile }}" \
           openwrtorg/imagebuilder:${{ inputs.profile }}-${{ inputs.openwrt-version }} \
             /home/build/openwrt/github_make_image.sh
       shell: bash
