@@ -39,7 +39,7 @@ jobs:
       - run: |
          sudo chmod -R a+rw ./bin
          ls -la $(pwd)/bin/target
-         gzip -d ./bin/target/rootfs-squashfs.img.gz || true
+         gzip -d --force ./bin/target/rootfs-squashfs.img.gz || true
          docker run --rm \
            -v $(pwd)/bin/target:/openwrt \
            tianon/qemu \
