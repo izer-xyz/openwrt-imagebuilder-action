@@ -39,16 +39,15 @@ jobs:
       - run: |
          sudo chmod -R a+rw ./bin
          ls -la $(pwd)/bin/target
-         ls -la $(pwd)/bin/targets/armvirt/32
-         gzip -d ./bin/targets/armvirt/32/openwrt-22.03.2-armvirt-32-rootfs-squashfs.img.gz || true
+         gzip -d ./bin/target/rootfs-squashfs.img.gz || true
          docker run --rm \
-           -v $(pwd)/bin/targets/armvirt/32:/openwrt \
+           -v $(pwd)/bin/target:/openwrt \
            tianon/qemu \
              qemu-system-arm \
                -M virt-2.9 \
-               -kernel /openwrt/openwrt-22.03.2-armvirt-32-zImage \
+               -kernel /openwrt/zImage \
                -no-reboot -nographic \
                -nic user -nic user  \
-               -drive file=/openwrt/openwrt-22.03.2-armvirt-32-rootfs-squashfs.img,if=virtio,format=raw  \
+               -drive file=/openwrt/rootfs-squashfs.img,if=virtio,format=raw  \
                -append "root=/dev/vda"
 
