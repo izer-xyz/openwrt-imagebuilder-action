@@ -20,5 +20,5 @@ mkdir bin/target/
 
 for file in bin/targets/*/*/openwrt-*
 do 
-  cp  "$file" "bin/target/${file#bin/targets/*/*/openwrt-*-*-*-}"
+  mv  "$file" "bin/target/${file#bin/targets/*/*/openwrt-*-*-*-}"
 done
