@@ -38,6 +38,7 @@ jobs:
           
       - run: |
          sudo chmod -R a+rw ./bin
+         ls -la $(pwd)/bin/target
          ls -la $(pwd)/bin/targets/armvirt/32
          gzip -d ./bin/targets/armvirt/32/openwrt-22.03.2-armvirt-32-rootfs-squashfs.img.gz || true
          docker run --rm \
