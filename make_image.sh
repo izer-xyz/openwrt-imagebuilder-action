@@ -18,7 +18,7 @@ make image \
 
 mkdir bin/target/
 
-for file in bin/targets/*/*/*
+for file in bin/targets/*/*/openwrt-*
 do 
   echo ln -s  "$file" "bin/target/${file#bin/targets/*/*/openwrt-*-*-*-}"
 done
