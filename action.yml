@@ -25,10 +25,6 @@ inputs:
     description: 'Alternative output directory for the images - BIN_DIR'
     required: false
     default: 'bin'
-  extra-image-name:
-    description: 'Add this to the output image filename (sanitized) - EXTRA_IMAGE_NAME'
-    required: false
-    default: ''
   debug:
     description: 'Set to "1" to enable additional debug info like the content of .config'
     required: false
@@ -45,7 +41,6 @@ runs:
           -e PACKAGES="${{ inputs.packages }}" \
           -e DISABLED_SERVICES="${{ inputs.disabled-services }}" \
           -e FILES="files" \
-          -e EXTRA_IMAGE_NAME="${{ inputs.extra-image-name }}" \
           -e DEBUG="${{ inputs.debug }}" \
           -e OPENWRT_VERSION="${{ inputs.openwrt-version }}" \
           -e OPENWRT_PROFILE="${{ inputs.profile }}" \
