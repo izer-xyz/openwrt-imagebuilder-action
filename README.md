@@ -13,12 +13,11 @@ Parameters
  * `packages`: -ppp 
  * `files`: test/files
  * `disabled-services`: dhcp
- * `extra-image-name`: useless
 
 Outputs
 
- * *`./bin/targets/**`*
-   * e.g. `./bin/targets/bcm27xx/bcm2711/openwrt-22.03.2-useless-bcm27xx-bcm2711-rpi-4-squashfs-factory.img.gz`
+ * *`./bin/*`*
+   * e.g. `./bin/squashfs-factory.img.gz`
 
 An example workflow creating a very basic (packages removed; [custom files](test/files) added) image and then running with Qemu
 
