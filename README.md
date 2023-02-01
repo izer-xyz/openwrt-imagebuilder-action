@@ -60,6 +60,8 @@ The Docker Hub [Imagebuilder tags](https://hub.docker.com/r/openwrtorg/imagebuil
  * Run openwrt in Qemu
    
    https://gist.github.com/extremecoders-re/f2c4433d66c1d0864a157242b6d83f67
+   
+   https://fadeevab.com/how-to-setup-qemu-output-to-console-and-automate-using-shell-script/
 
 # License
 
