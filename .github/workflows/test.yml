@@ -27,12 +27,13 @@ jobs:
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
           profile: armvirt-32
-          openwrt-version: 22.03.2
+          openwrt-version: 22.03.5
           packages: >-
             -firewall4 -ca-bundle -dnsmasq -dropbear   
             -kmod-nft-offload -libustream-wolfssl -logd  
             -nftables -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe -uclient-fetch 
           files: test/files
+          rootfs-size: 10
           #disabled-services: dhcp
          # extra-image-name: useless
           
