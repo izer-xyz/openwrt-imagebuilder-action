@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [[ "$DEBUG" == "1" ]]; then
+  pwd
   echo ====== ./files ==
   ls -la $FILES
   echo ====== set ======
