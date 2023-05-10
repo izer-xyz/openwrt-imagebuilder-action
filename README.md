@@ -9,7 +9,7 @@ See [action.yml](action.yml)
 Parameters
 
  * `profile`: bcm27xx-bcm2711
- * `openwrt-version`: 22.03.2
+ * `openwrt-version`: 22.03.5
  * `packages`: -ppp 
  * `files`: test/files
  * `disabled-services`: dhcp
@@ -30,7 +30,7 @@ steps:
 - uses: izer-xyz/openwrt-imagebuilder-action@v1
   with:
     profile: bcm27xx-bcm2711
-    openwrt-version: 22.03.2
+    openwrt-version: 22.03.5
     packages: -ppp 
 ```
 
@@ -41,7 +41,7 @@ steps:
 - uses: izer-xyz/openwrt-imagebuilder-action@v1
   with:
     profile: bcm27xx-bcm2711
-    openwrt-version: 22.03.2
+    openwrt-version: 22.03.5
     files: test/files
 ```
 
@@ -51,9 +51,9 @@ steps:
 
 The Docker Hub [Imagebuilder tags](https://hub.docker.com/r/openwrtorg/imagebuilder/tags) are formatted `${profile}-${openwrt-version}`. E.g.
 
-  * [*bcm27xx-bcm2711*-**22.03.2**](https://hub.docker.com/layers/openwrtorg/imagebuilder/bcm27xx-bcm2711-22.03.2/)
+  * [*bcm27xx-bcm2711*-**22.03.5**](https://hub.docker.com/layers/openwrtorg/imagebuilder/bcm27xx-bcm2711-22.03.2/)
     * `profile`: *bcm27xx-bcm2711*
-    * `openwrt-version`: **22.03.2**
+    * `openwrt-version`: **22.03.5**
 
 ## Additional Documentation
 
