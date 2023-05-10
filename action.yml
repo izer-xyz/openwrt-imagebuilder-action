@@ -25,6 +25,10 @@ inputs:
     description: 'Alternative output directory for the images - BIN_DIR'
     required: false
     default: 'bin'
+  rootfs-size:
+    description: 'Override the default rootfs partition size in MegaBytes - ROOTFS_PARTSIZE'
+    required: false
+    default: ''
   debug:
     description: 'Set to "1" to enable additional debug info like the content of .config'
     required: false
@@ -40,6 +44,7 @@ runs:
           -v "$(pwd)"/${{ inputs.bin-dir }}/:/home/build/openwrt/bin:rw \
           -e PACKAGES="${{ inputs.packages }}" \
           -e DISABLED_SERVICES="${{ inputs.disabled-services }}" \
+          -e ROOTFS_PARTSIZE="${{ inputs.rootfs-size }}" \
           -e FILES="files" \
           -e DEBUG="${{ inputs.debug }}" \
           -e OPENWRT_VERSION="${{ inputs.openwrt-version }}" \
