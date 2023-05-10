@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$(pwd)" == "/builder" ]]; then
+  echo This action assumes that the imagebuilder docker image default folder is '/builder'
+  exit -1
+fi
+
 if [[ "$DEBUG" == "1" ]]; then
   pwd
   echo ====== ./files ==
