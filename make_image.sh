@@ -1,7 +1,8 @@
 #!/bin/bash
 
-if [[ "$(pwd)" == "/builder" ]]; then
-  echo This action assumes that the imagebuilder docker image default folder is '/builder'
+if [[ "$(pwd)" != "/builder" ]]; then
+  echo This action assumes that the imagebuilder docker image default folder is '/builder' but found:
+  pwd
   exit -1
 fi
 
