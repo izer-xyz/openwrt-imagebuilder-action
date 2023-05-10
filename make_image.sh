@@ -1,9 +1,13 @@
 #!/bin/bash
 
 if [[ "$DEBUG" == "1" ]]; then
+  echo ====== ./files ==
+  ls -la $FILES
+  echo ====== set ======
   set
+  echo ====== .config ==
   cat .config
-  ls -la files
+  echo ====== end ======
 fi
 
 sed \
