@@ -34,6 +34,7 @@ jobs:
             -nftables -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe -uclient-fetch 
           files: test/files
           rootfs-size: 10
+          debug: 1
           #disabled-services: dhcp
          # extra-image-name: useless
           
