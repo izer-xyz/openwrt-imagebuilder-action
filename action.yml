@@ -39,9 +39,9 @@ runs:
     - run: |
         mkdir bin && chmod 777 bin && \
         docker run --rm \
-          -v ${{ github.action_path }}/make_image.sh:/home/build/openwrt/github_make_image.sh \
-          -v "$(pwd)"/${{ inputs.files }}/:/home/build/openwrt/files \
-          -v "$(pwd)"/${{ inputs.bin-dir }}/:/home/build/openwrt/bin:rw \
+          -v ${{ github.action_path }}/make_image.sh:/builder/github_make_image.sh \
+          -v "$(pwd)"/${{ inputs.files }}/:/builder/files \
+          -v "$(pwd)"/${{ inputs.bin-dir }}/:/builder/bin:rw \
           -e PACKAGES="${{ inputs.packages }}" \
           -e DISABLED_SERVICES="${{ inputs.disabled-services }}" \
           -e ROOTFS_PARTSIZE="${{ inputs.rootfs-size }}" \
@@ -50,6 +50,6 @@ runs:
           -e OPENWRT_VERSION="${{ inputs.openwrt-version }}" \
           -e OPENWRT_PROFILE="${{ inputs.profile }}" \
           openwrt/imagebuilder:${{ inputs.profile }}-${{ inputs.openwrt-version }} \
-            /home/build/openwrt/github_make_image.sh
+            /builder/github_make_image.sh
       shell: bash
 
