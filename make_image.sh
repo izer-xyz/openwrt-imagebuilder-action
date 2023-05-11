@@ -17,10 +17,7 @@ if [[ "$DEBUG" == "1" ]]; then
   echo ====== end ======
 fi
 
-# TODO this should be driven by config and hardcoded here
-sed \
-  -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' \
-  -i .config
+sed -f config.sed -i .config
   
 make image \
   FILES="$FILES" \
