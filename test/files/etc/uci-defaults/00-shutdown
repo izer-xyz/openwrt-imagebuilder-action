@@ -1,1 +1,3 @@
+echo force reboot that should shutdown qemu >> /dev/kmsg
+
 reboot -fn
