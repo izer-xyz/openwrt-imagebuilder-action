@@ -40,6 +40,7 @@ runs:
         mkdir bin && chmod 777 bin && \
         docker run --rm \
           -v ${{ github.action_path }}/make_image.sh:/builder/github_make_image.sh \
+          -v "$(pwd)"/config.sed:/builder/config.sed \
           -v "$(pwd)"/${{ inputs.files }}/:/builder/files \
           -v "$(pwd)"/${{ inputs.bin-dir }}/:/builder/bin:rw \
           -e PACKAGES="${{ inputs.packages }}" \
