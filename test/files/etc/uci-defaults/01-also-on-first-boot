@@ -1,1 +1,1 @@
-echo another message
+echo another message >> /dev/kmsg
