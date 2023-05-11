@@ -22,7 +22,9 @@ sed \
   -e '/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/' \
   -i .config
   
-make image 
+make image \
+  FILES="$FILES" \
+  PACKAGES="$PACKAGES"
 
 mkdir bin/target/
 
