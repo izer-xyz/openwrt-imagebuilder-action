@@ -4,7 +4,9 @@ Build and [OpenWrt](https://openwrt.org) firmware image using [Imagebuilder](htt
 
 # Usage
 
-See [action.yml](action.yml)
+Use template repo: [openwrt-imagebuilder-action-template](https://github.com/izer-xyz/openwrt-imagebuilder-action-template)
+
+See [action.yml](action.yml) from more details. 
 
 Parameters
 
