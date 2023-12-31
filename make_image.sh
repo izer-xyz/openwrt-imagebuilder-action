@@ -8,7 +8,7 @@ make info
 
 echo Config
 echo "* Debug=$DEBUG"
-echo "* PEOFILE=$PROFILE"
+echo "* PROFILE=$PROFILE"
 echo "* FILES=$FILES"
 echo "* PACKAGES=$PACKAGES"
 

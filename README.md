@@ -11,6 +11,7 @@ See [action.yml](action.yml) from more details.
 Parameters
 
  * `image`: bcm27xx-bcm2711
+ * `profile`: Default
  * `openwrt-version`: 22.03.5
  * `packages`: -ppp 
  * `files`: test/files
