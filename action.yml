@@ -1,8 +1,8 @@
 name: 'OpenWrt ImageBuilder'
 description: 'Build OpenWrt custom images using ImageBuilder - https://openwrt.org/docs/guide-user/additional-software/imagebuilder '
 inputs:
-  profile: 
-    description: 'Specifies the target image to build - PROFILE'
+  image: 
+    description: 'Specifies the imagebuilder tag'
     required: true
     default: 'bcm27xx-bcm2711'
   openwrt-version:
@@ -49,8 +49,8 @@ runs:
           -e FILES="files" \
           -e DEBUG="${{ inputs.debug }}" \
           -e OPENWRT_VERSION="${{ inputs.openwrt-version }}" \
-          -e OPENWRT_PROFILE="${{ inputs.profile }}" \
-          openwrt/imagebuilder:${{ inputs.profile }}-${{ inputs.openwrt-version }} \
+          -e OPENWRT_IMAGE="${{ inputs.image }}" \
+          openwrt/imagebuilder:${{ inputs.image }}-${{ inputs.openwrt-version }} \
             /builder/github_make_image.sh
       shell: bash
 

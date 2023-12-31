@@ -26,7 +26,7 @@ jobs:
        
       - uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
-          profile: armvirt-32
+          image: armvirt-32
           openwrt-version: 22.03.5
           packages: >-
             -firewall4 -ca-bundle -dnsmasq -dropbear   

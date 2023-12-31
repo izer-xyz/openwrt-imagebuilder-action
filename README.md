@@ -10,7 +10,7 @@ See [action.yml](action.yml) from more details.
 
 Parameters
 
- * `profile`: bcm27xx-bcm2711
+ * `image`: bcm27xx-bcm2711
  * `openwrt-version`: 22.03.5
  * `packages`: -ppp 
  * `files`: test/files
@@ -31,7 +31,7 @@ An example workflow creating a very basic (packages removed; [custom files](test
 steps:
 - uses: izer-xyz/openwrt-imagebuilder-action@v1
   with:
-    profile: bcm27xx-bcm2711
+    image: bcm27xx-bcm2711
     openwrt-version: 22.03.5
     packages: -ppp 
 ```
@@ -42,19 +42,19 @@ steps:
 steps:
 - uses: izer-xyz/openwrt-imagebuilder-action@v1
   with:
-    profile: bcm27xx-bcm2711
+    image: bcm27xx-bcm2711
     openwrt-version: 22.03.5
     files: test/files
 ```
 
 # FAQ
 
-### How to find `profile` and `openwrt-version`
+### How to find `image` and `openwrt-version`
 
-The Docker Hub [Imagebuilder tags](https://hub.docker.com/r/openwrtorg/imagebuilder/tags) are formatted `${profile}-${openwrt-version}`. E.g.
+The Docker Hub [Imagebuilder tags](https://hub.docker.com/r/openwrtorg/imagebuilder/tags) are formatted `${image}-${openwrt-version}`. E.g.
 
   * [*bcm27xx-bcm2711*-**22.03.5**](https://hub.docker.com/layers/openwrtorg/imagebuilder/bcm27xx-bcm2711-22.03.2/)
-    * `profile`: *bcm27xx-bcm2711*
+    * `image`: *bcm27xx-bcm2711*
     * `openwrt-version`: **22.03.5**
 
 ## Additional Documentation
