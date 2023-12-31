@@ -26,7 +26,9 @@ if [[ "$DEBUG" == "1" ]]; then
 fi
 
 sed -f config.sed -i .config
-  
+
+make info
+
 make image \
   FILES="$FILES" \
   PACKAGES="$PACKAGES"
