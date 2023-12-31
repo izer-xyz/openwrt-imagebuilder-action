@@ -1,5 +1,7 @@
 name: 'OpenWrt ImageBuilder'
 description: 'Build OpenWrt custom images using ImageBuilder - https://openwrt.org/docs/guide-user/additional-software/imagebuilder '
+icon: 'box'
+color: 'yellow'
 inputs:
   image: 
     description: 'Specifies the imagebuilder tag'
