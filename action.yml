@@ -5,6 +5,10 @@ inputs:
     description: 'Specifies the imagebuilder tag'
     required: true
     default: 'bcm27xx-bcm2711'
+  profile:
+    description: 'Specifies the target image to build - PROFILE'
+    required: false
+    default: ''
   openwrt-version:
     description: 'OpenWrt version'
     required: true
@@ -43,6 +47,7 @@ runs:
           -v "$(pwd)"/config.sed:/builder/config.sed \
           -v "$(pwd)"/${{ inputs.files }}/:/builder/files \
           -v "$(pwd)"/${{ inputs.bin-dir }}/:/builder/bin:rw \
+          -e PROFILE="${{ inputs.profile }}" \
           -e PACKAGES="${{ inputs.packages }}" \
           -e DISABLED_SERVICES="${{ inputs.disabled-services }}" \
           -e ROOTFS_PARTSIZE="${{ inputs.rootfs-size }}" \

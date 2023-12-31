@@ -4,9 +4,13 @@ set -e
 
 echo ImageBuilder 
 
-echo Debug="$DEBUG"
-echo FILES="$FILES"
-echo PACKAGES="$PACKAGES"
+make info 
+
+echo Config
+echo * Debug="$DEBUG"
+echo * PEOFILE="$PROFILE"
+echo * FILES="$FILES"
+echo * PACKAGES="$PACKAGES"
 
 if [[ "$(pwd)" != "/builder" ]]; then
   echo This action assumes that the imagebuilder docker image default folder is '/builder' but found:
@@ -27,9 +31,8 @@ fi
 
 sed -f config.sed -i .config
 
-make info
-
 make image \
+  PROFILE="$PROFILE" \
   FILES="$FILES" \
   PACKAGES="$PACKAGES"
 
