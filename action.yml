@@ -45,11 +45,13 @@ runs:
   steps:
     - run: |
         mkdir bin && chmod 777 bin && \
+        mkdir packages && chmod 777 packages && \
         docker run --rm \
           -v ${{ github.action_path }}/make_image.sh:/builder/github_make_image.sh \
           -v "$(pwd)"/config.sed:/builder/config.sed \
           -v "$(pwd)"/${{ inputs.files }}/:/builder/files \
           -v "$(pwd)"/${{ inputs.bin-dir }}/:/builder/bin:rw \
+          -v "$(pwd)"/packages/:/builder/packages \
           -e PROFILE="${{ inputs.profile }}" \
           -e PACKAGES="${{ inputs.packages }}" \
           -e DISABLED_SERVICES="${{ inputs.disabled-services }}" \
