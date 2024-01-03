@@ -44,8 +44,8 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        mkdir bin && chmod 777 bin && \
-        mkdir packages && chmod 777 packages && \
+        mkdir -p bin && chmod 777 bin && \
+        mkdir -p packages && chmod 777 packages && \
         docker run --rm \
           -v ${{ github.action_path }}/make_image.sh:/builder/github_make_image.sh \
           -v "$(pwd)"/config.sed:/builder/config.sed \
