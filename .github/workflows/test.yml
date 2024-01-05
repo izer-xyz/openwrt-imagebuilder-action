@@ -37,7 +37,7 @@ jobs:
           profile: Default
           openwrt-version: 22.03.5
           packages: >-
-            librespot -firewall4 -ca-bundle -dnsmasq -dropbear   
+            -firewall4 -ca-bundle -dnsmasq -dropbear   
             -kmod-nft-offload -libustream-wolfssl -logd  
             -nftables -odhcpd-ipv6only -opkg -ppp -ppp-mod-pppoe -uclient-fetch 
           files: test/files
