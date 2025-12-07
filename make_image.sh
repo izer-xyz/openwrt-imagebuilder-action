@@ -41,10 +41,10 @@ mkdir bin/target/
 for file in bin/targets/*/*/openwrt-*
 do 
   # TODO There might be a bug with the "openwrt-*-*-*-" pattern if not all profile match this format
-  mv  "$file" "bin/${file#bin/targets/*/*/openwrt-*-*-*-}"
+  mv  -v "$file" "bin/${file#bin/targets/*/*/openwrt-*-*-*-}"
 done
 
-mv bin/targets/*/*/* bin
+mv -v bin/targets/*/*/* bin
 rm -rf bin/targets
 
 ls -lah bin/
