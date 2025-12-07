@@ -4,7 +4,7 @@ set -e
 
 echo ImageBuilder 
 
-make info 
+make info || sh -c ./setup.sh && make info
 
 echo Config
 echo "* Debug=$DEBUG"
