@@ -38,13 +38,20 @@ make image \
 
 mkdir bin/target/
 
+echo Remove prefix...
+ls -lah bin/targets/*/*/openwrt-*
+
 for file in bin/targets/*/*/openwrt-*
 do 
   # TODO There might be a bug with the "openwrt-*-*-*-" pattern if not all profile match this format
   mv  -v "$file" "bin/${file#bin/targets/*/*/openwrt-*-*-*-}"
 done
 
+echo Cleanup...
+ls -lah bin/targets/*/*/*
+
 mv -v bin/targets/*/*/* bin
 rm -rf bin/targets
 
+echo Done:
 ls -lah bin/
